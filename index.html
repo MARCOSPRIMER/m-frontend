@@ -25,7 +25,7 @@
   <h1>Test your reaction!</h1>
   <p>Click on the boxes and squares as quicly as you can!</p>
   <p class="bold">Your Time: <span id="timeTaken"></p>
-  <p class="bold">Best Score: <span id="timeTaken"></p>
+  <p class="bold">Best Score: <span id="bestScore"></p>
   
   <div id="shape"></div>
 
@@ -59,14 +59,15 @@
 
     }
     appearAfterDelay();
+
     document.getElementById("shape").onclick = function(){
-      document.getElementById("shape").style.display = "none";
-      var end = new Date().getTime();
-      var timeTaken = (end-start)/1000;
-      document.getElementById("timeTaken").innerHtml=timeTaken + "s";
-      if(timeTaken < highScore){
-        highScore = timeTaken;
-        document.getElementById("bestScore").innerHTML = highScore + "s";
+				document.getElementById("shape").style.display = "none";
+				var end = new Date().getTime();
+				var timeTaken = (end-start)/1000; 
+				document.getElementById("timeTaken").innerHTML=timeTaken + "s" ; 
+				if (timeTaken < highScore) {
+          highScore = timeTaken;
+          document.getElementById("bestScore").innerHTML = highScore + "s";
       }
       appearAfterDelay();
     }
@@ -74,7 +75,7 @@
       var letters = '0123456789ABCDEF';
       var color = "#";
       for (var i = 0; i <6; i++){
-        color += letters[Math.floor(math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)];
       }
       return color;
     }
